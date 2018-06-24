@@ -13,19 +13,20 @@ from arithmetic import *
 # check list[0] and compare to list of funtions(names or symbols)
 
 # check number of operants with len(string.split)
-user_input = input(">>").split(" ")
 
-if len(user_input)<2:
-    print ("Not enough inputs")
-elif len(user_input)>3:
-    print ("Too many operands")
-elif len(user_input) == 2:
-    num2=0
-else:
-    num1=int(user_input[1])
-    num2= int(user_input[2])
 
 while True:
+    user_input = input(">>").split(" ")
+
+    if len(user_input)<2:
+        print ("Not enough inputs")
+    elif len(user_input)>3:
+        print ("Too many operands")
+    elif len(user_input) == 2:
+        num2=0
+    else:
+        num1=int(user_input[1])
+        num2= int(user_input[2])
 
     if user_input[0] == "+":
         result = float(add_nums(num1,num2))
@@ -47,5 +48,5 @@ while True:
         exit()
     else:
         print ("Sorry that wasn't clear, please try again")
-        continue
+
 
