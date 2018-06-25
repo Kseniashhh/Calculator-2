@@ -31,13 +31,13 @@ while True:
         elif len(user_input)>3:
             print ("Too many operands, try again")
             continue
-        elif len(user_input) == 2:
-            num1=int(user_input[1])
-            num2=0
-
-        else:
-            num1=int(user_input[1])
-            num2= int(user_input[2])
+        elif user_input[1].isdigit():
+            if len(user_input) == 2:
+                num1=int(user_input[1])
+                num2=0
+            else:
+                num1=int(user_input[1])
+                num2= int(user_input[2])
 
         if user_input[0] == "+":
             result = float(add(num1,num2))
