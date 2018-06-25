@@ -18,38 +18,50 @@ from arithmetic import *
 while True:
     user_input = input(">>").split(" ")
 
+    if "q" in user_input:
+        print ("Sad you're leaving")
+        break
 
-    if user_input[0] not in ['+','-','*','/','**','square','mod','cube','q','quit']:
+    if user_input[0] not in ['+','-','*','/','**','square','mod','cube']:
         print ("Sorry that wasn't clear, please try again")
-    elif user_input[0] not in ['+','-','*','/','**','square','mod','cube','q','quit'] and len(user_input)<2:
-        print ("Not enough inputs")
-    elif len(user_input)>3:
-        print ("Too many operands")
-    elif len(user_input) == 2:
-        num2=0
-
     else:
-        num1=int(user_input[1])
-        num2= int(user_input[2])
+        if len(user_input)<2:
+            print ("Not enough inputs")
+            continue
+        elif len(user_input)>3:
+            print ("Too many operands, try again")
+            continue
+        elif len(user_input) == 2:
+            num1=int(user_input[1])
+            num2=0
 
-    if user_input[0] == "+":
-        result = float(add(num1,num2))
-    elif user_input[0] == "-":
-        result = float(subtract(num1, num2))
-    elif user_input[0] == "*":
-        result = float(multiply(num1, num2))
-    elif user_input[0] == "/":
-        result = float(divide(num1,num2))
-    elif user_input[0] == "square":
-        result = square(num1)
-    elif user_input[0] == "cube":
-        result = cube(num1)
-    elif user_input[0] == "**":
-        result = power(num1, num2)
-    elif user_input[0] == "mod":
-        result = mod(num1, num2)
-    else:
-        False
-    print(result)
+        else:
+            num1=int(user_input[1])
+            num2= int(user_input[2])
+
+        if user_input[0] == "+":
+            result = float(add(num1,num2))
+        elif user_input[0] == "-":
+            result = float(subtract(num1, num2))
+        elif user_input[0] == "*":
+            result = float(multiply(num1, num2))
+        elif user_input[0] == "/":
+
+            result = divide(num1,num2)
+            if result is not None:
+                result = float(result)
+            else:
+                result = "Try again"
+        elif user_input[0] == "square":
+            result = square(float(num1))
+        elif user_input[0] == "cube":
+            result = cube(float(num1))
+        elif user_input[0] == "**":
+            result = power(float(num1),float(num2))
+        elif user_input[0] == "mod":
+            result = mod(float(num1), float(num2))
+        # else:
+        #     False
+        print(result)
 
 
