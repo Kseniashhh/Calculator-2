@@ -18,18 +18,22 @@ from arithmetic import *
 while True:
     user_input = input(">>").split(" ")
 
-    if len(user_input)<2:
+
+    if user_input[0] not in ['+','-','*','/','**','square','mod','cube','q','quit']:
+        print ("Sorry that wasn't clear, please try again")
+    elif user_input[0] not in ['+','-','*','/','**','square','mod','cube','q','quit'] and len(user_input)<2:
         print ("Not enough inputs")
     elif len(user_input)>3:
         print ("Too many operands")
     elif len(user_input) == 2:
         num2=0
+
     else:
         num1=int(user_input[1])
         num2= int(user_input[2])
 
     if user_input[0] == "+":
-        result = float(add_nums(num1,num2))
+        result = float(add(num1,num2))
     elif user_input[0] == "-":
         result = float(subtract(num1, num2))
     elif user_input[0] == "*":
@@ -44,9 +48,8 @@ while True:
         result = power(num1, num2)
     elif user_input[0] == "mod":
         result = mod(num1, num2)
-    elif user_input[0]=="q" or user_input[0] == "quit":
-        exit()
     else:
-        print ("Sorry that wasn't clear, please try again")
+        False
+    print(result)
 
 
